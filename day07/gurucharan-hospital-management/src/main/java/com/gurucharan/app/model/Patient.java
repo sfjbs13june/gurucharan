@@ -5,42 +5,42 @@ import org.springframework.stereotype.Component;
 @Component
 public class Patient {
 
-    String patientname;
-    int patientid;
-    String hospitalname;
+    String patientName;
+    int patientId;
+    String hospitalName;
     String disease;
 
     public Patient(){}
 
-    public Patient(String patientname, int patientid, String hospitalname, String disease) {
-        this.patientname = patientname;
-        this.patientid = patientid;
-        this.hospitalname = hospitalname;
+    public Patient(String patientName, int patientId, String hospitalName, String disease) {
+        this.patientName = patientName;
+        this.patientId = patientId;
+        this.hospitalName = hospitalName;
         this.disease = disease;
     }
 
-    public String getPatientname() {
-        return patientname;
+    public String getPatientName() {
+        return patientName;
     }
 
-    public void setPatientname(String patientname) {
-        this.patientname = patientname;
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
     }
 
-    public int getPatientid() {
-        return patientid;
+    public int getPatientId() {
+        return patientId;
     }
 
-    public void setPatientid(int patientid) {
-        this.patientid = patientid;
+    public void setPatientId(int patientId) {
+        this.patientId = patientId;
     }
 
-    public String getHospitalname() {
-        return hospitalname;
+    public String getHospitalName() {
+        return hospitalName;
     }
 
-    public void setHospitalname(String hospitalname) {
-        this.hospitalname = hospitalname;
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
     }
 
     public String getDisease() {

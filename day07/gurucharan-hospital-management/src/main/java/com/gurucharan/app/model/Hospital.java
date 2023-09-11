@@ -1,36 +1,37 @@
 package com.gurucharan.app.model;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 
-@Component
+@Controller
 public class Hospital {
 
-    String hospitalname;
-    String hospitalid;
+    String hospitalName;
+    String hospitalId;
     String address;
 
     public Hospital(){}
 
-    public Hospital(String hospitalname, String hospitalid, String address) {
-        this.hospitalname = hospitalname;
-        this.hospitalid = hospitalid;
+    public Hospital(String hospitalName, String hospitalId, String address) {
+        this.hospitalName = hospitalName;
+        this.hospitalId = hospitalId;
         this.address = address;
     }
 
-    public String getHospitalname() {
-        return hospitalname;
+    public String getHospitalName() {
+        return hospitalName;
     }
 
-    public void setHospitalname(String hospitalname) {
-        this.hospitalname = hospitalname;
+    public void setHospitalName(String hospitalName) {
+        this.hospitalName = hospitalName;
     }
 
-    public String getHospitalid() {
-        return hospitalid;
+    public String getHospitalId() {
+        return hospitalId;
     }
 
-    public void setHospitalid(String hospitalid) {
-        this.hospitalid = hospitalid;
+    public void setHospitalId(String hospitalId) {
+        this.hospitalId = hospitalId;
     }
 
     public String getAddress() {
