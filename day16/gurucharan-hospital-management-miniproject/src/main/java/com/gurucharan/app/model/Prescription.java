@@ -7,73 +7,59 @@ import javax.persistence.GeneratedType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="prescription", schema="hospital")
-@DynamicUpdate
 public class Prescription {
 
     @Id
-    @GeneratedValue(strategy=GeneratedType.IDENTITY)
-    @Column(name="prescriptionID")
-    private Integer prescriptionID;
-
-    public Integer getPrescriptionID() {
-        return prescriptionID;
-    }
-
-    public void setPrescriptionID(Integer prescriptionID) {
-        this.prescriptionID = prescriptionID;
-    }
-
-    @Column
+    private String prescriptionId;
+    private String appointmentId;
+    private String description;
     private String patientName;
-
-    @Column
-    private Integer appointmentID;
-
-    @Column
-    private  Sting description;
-
-    @Column
     private String doctorName;
 
-    public Prescription(String patientName, Integer appointmentID, Sting description, String doctorName) {
-        super();
-        this.patientName = patientName;
-        this.appointmentID = appointmentID;
+    public Prescription(){}
+
+    public Prescription(String prescriptionId, String appointmentId, String description, String patientName, String doctorName) {
+        this.prescriptionId = prescriptionId;
+        this.appointmentId = appointmentId;
         this.description = description;
+        this.patientName = patientName;
         this.doctorName = doctorName;
     }
 
-    public Prescription() {
+    public String getPrescriptionId() {
+        return prescriptionId;
+    }
+
+    public void setPrescriptionId(String prescriptionId) {
+        this.prescriptionId = prescriptionId;
+    }
+
+    public String getAppointmentId() {
+        return appointmentId;
+    }
+
+    public void setAppointmentId(String appointmentId) {
+        this.appointmentId = appointmentId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getPatientName() {
         return patientName;
     }
 
-    public Integer getAppointmentID() {
-        return appointmentID;
-    }
-
-    public Sting getDescription() {
-        return description;
-    }
-
-    public String getDoctorName() {
-        return doctorName;
-    }
-
     public void setPatientName(String patientName) {
         this.patientName = patientName;
     }
 
-    public void setAppointmentID(Integer appointmentID) {
-        this.appointmentID = appointmentID;
-    }
-
-    public void setDescription(Sting description) {
-        this.description = description;
+    public String getDoctorName() {
+        return doctorName;
     }
 
     public void setDoctorName(String doctorName) {

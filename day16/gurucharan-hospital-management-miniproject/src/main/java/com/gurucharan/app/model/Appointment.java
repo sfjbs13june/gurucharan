@@ -7,76 +7,31 @@ import javax.persistence.GeneratedType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="appointment", schema="hospital")
-@DynamicUpdate
-public class Appointment{
+public class Appointment {
+
     @Id
-    @GeneratedValue(strategy=GeneratedType.IDENTITY)
-    @Column(name="appointmentID")
-    private Integer appointmentID;
-
-    @Column(name="patientName")
+    private String appointmentId;
     private String patientName;
-
-    @Column(name="doctorName")
     private String doctorName;
-
-    @Column(name="appointmentDate")
     private String date;
+    private Prescription prescription;
 
-    @Column(name="prescription")
-    private String prescription;
+    public Appointment(){}
 
-    @Column(name="confirmed")
-    private String confirmed;
-
-    public String getPrescription(){
-        return prescription;
-    }
-
-    public void setPrescription(String prescription) {
-        this.prescription = prescription;
-    }
-
-
-
-    public Appointment(Integer appointmentID, String patientName, String doctorName, String date, String prescription, String confirmed) {
-        super();
-        this.appointmentID = appointmentID;
+    public Appointment(String appointmentId, String patientName, String doctorName, String date, Prescription prescription) {
+        this.appointmentId = appointmentId;
         this.patientName = patientName;
         this.doctorName = doctorName;
         this.date = date;
         this.prescription = prescription;
-        this.confirmed = confirmed;
     }
 
-    @Override
-    public String toString(){
-
-        return Appointment "[appointmentID=" + appointmentID + ", patientName=" + patientName +", doctorName=" + doctorName + ", date="+ date",prescription=" + prescription+"]" ;
-
+    public String getAppointmentId() {
+        return appointmentId;
     }
 
-
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getDoctorName() {
-        return doctorName;
-    }
-
-    public void setDoctorName(String doctorName) {
-        this.doctorName = doctorName;
-    }
-
-    public Appointment() {
+    public void setAppointmentId(String appointmentId) {
+        this.appointmentId = appointmentId;
     }
 
     public String getPatientName() {
@@ -87,19 +42,27 @@ public class Appointment{
         this.patientName = patientName;
     }
 
-    public Integer getAppointmentID() {
-        return appointmentID;
+    public String getDoctorName() {
+        return doctorName;
     }
 
-    public void setAppointmentID(Integer appointmentID) {
-        this.appointmentID = appointmentID;
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
     }
 
-    public String getConfirmed() {
-        return confirmed;
+    public String getDate() {
+        return date;
     }
 
-    public void setConfirmed(String confirmed) {
-        this.confirmed = confirmed;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public Prescription getPrescription() {
+        return prescription;
+    }
+
+    public void setPrescription(Prescription prescription) {
+        this.prescription = prescription;
     }
 }

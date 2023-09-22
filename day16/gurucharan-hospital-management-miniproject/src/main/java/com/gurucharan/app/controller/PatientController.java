@@ -5,13 +5,23 @@ import java.util.List;
 
 import org.spirngframework.stereotye.Controller;
 
-@Controller
-@RequestMapping("/patients")
-public class PatientController{
+@RestController
+@RequestMapping(value ="/patient")
+public class PatientController {
 
     @Autowired
-    private appointmentService service;
+    private AppointmentRepository appointmentRepository;
 
-   // @GetMapping("/myAppointments")
+    @PostMapping(value="/save")
+    public Appointment saveAppointment(@RequestBody Appointment appointment){
+        return appointmentRepository.save(appointment);
+    }
+
+    @GetMapping(value="/myAppointment")
+    public Appointment getAppointments(@RequestParam String patientName){
+        Appointment appointment=appointmentRepository.findBypatientName(patientName);
+        return  appointment;
+    }
+
 
 }

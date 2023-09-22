@@ -6,17 +6,20 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/doctor")
+@RequestMapping(value ="/doctors")
 public class DoctorController {
-    @GetMapping("/doctorAppointment")
-    public List<Appointment> getAppointments(@RequestParam String doctorName){
 
-        return null;
-    }
-    @PostMapping("/save")
+    @Autowired
+    private AppointmentRepository appointmentRepository;
+
+    @PostMapping(value ="/save")
     public Appointment saveAppointment(@RequestBody Appointment appointment){
+        return appointmentRepository.save(appointment);
+    }
 
+    @GetMapping(value = "/doctorsAppointment")
+    public Appointment getAppointment(@RequestParam String docterName){
+        Appointment appointment=appointmentRepository.findBydoctorName(docterName);
         return appointment;
     }
-
 }
